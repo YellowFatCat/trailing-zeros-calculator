@@ -115,7 +115,8 @@ public class CalculatorEndpointTest {
     mockMvc.perform(get("/calculator").param("value", inputValue))
 
     // Then
-           .andExpect(status().isBadRequest());
+           .andExpect(status().isBadRequest())
+           .andExpect(content().string("The input value should be a non-negative integer"));
 
     verifyZeroInteractions(calculatorServiceMock);
   }
@@ -130,7 +131,8 @@ public class CalculatorEndpointTest {
     mockMvc.perform(get("/calculator").param("value", inputValue))
 
     // Then
-           .andExpect(status().isBadRequest());
+           .andExpect(status().isBadRequest())
+           .andExpect(content().string("The input value should be a non-negative integer"));
 
     verifyZeroInteractions(calculatorServiceMock);
   }
